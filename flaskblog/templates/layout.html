@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+        <title>Flaskblog-{{ title }}</title>
+    {% else %}
+        <title>Flaskblog</title>
+    {% endif %}
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='home.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='about.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='register.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='login.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='account.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='post.css') }}">
+</head>
+<body>
+    <div  class="main-header">
+        <div class="first-sec">
+            <a class="tfb" href="#">Flaskblog</a>
+            <a class="hme" href="{{ url_for('main.home') }}">Home</a>
+            <a class="abt" href="{{ url_for('main.about') }}">About</a>
+        </div>
+        <div class="second-sec">
+            {% if current_user.is_authenticated %}
+                <a class="np" href="{{ url_for('posts.new_post') }}">New Post</a>
+                <a class="acnt" href="{{ url_for('users.account') }}">Account</a>
+                <a class="lgt" href="{{ url_for('users.logout') }}">Logout</a>
+            {% else %}
+                <a class="lgn" href="{{ url_for('users.login') }}">Login</a>
+                <a class="rgs" href="{{ url_for('users.register') }}">Register</a>
+            {% endif %}
+        </div>
+    </div>
+    {% with messages= get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert {% if category=='success' %}alert-success{% elif category=='failure' %}alert-failure{% elif category=='info' %}alert-info{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+
+
+    {% block content %}{% endblock content %}
+    <div class="the-sdbar">
+        <h1 class="major-header">Our Sidebar</h1>
+        <small class="inp">You can input any info you'd like</small>
+        <div class="lp">Latest posts</div>
+        <div class="ann">Announcements</div>
+        <div class="cal">Calendars</div>
+        <div class="et">etc</div>
+    </div>
+</body>
+</html>

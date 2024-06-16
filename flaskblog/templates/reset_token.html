@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="form-container">
+        <form method="post" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="the-fds">
+                <legend class="lgnd">Reset Password</legend>
+                <div>
+                    {{ form.password.label(class='eml-lbl') }}
+                    {% if form.password.errors %}
+                        {{ form.password(class='inv-eml') }}
+                        {% for error in form.password.errors %}
+                            <span class="the-err">{{ error }}</span>
+                        {% endfor %}
+                    {% else %}
+                        {{ form.password(class='eml') }}
+                    {% endif %}
+    
+                </div>
+                <div>
+                    {{ form.confirm_password.label(class='eml-lbl') }}
+                    {% if form.confirm_password.errors %}
+                        {{ form.confirm_password(class='inv-eml') }}
+                        {% for error in form.confirm_password.errors %}
+                            <span class="the-err">{{ error }}</span>
+                        {% endfor %}
+                    {% else %}
+                        {{ form.confirm_password(class='eml') }}
+                    {% endif %}
+    
+                </div>
+            </fieldset>
+            <div>
+                {{ form.submit(class='sub') }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}

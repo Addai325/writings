@@ -1,0 +1,38 @@
+.content-section {
+    margin-top: 80px;
+    margin-left: 360px;
+    border: 1px solid lightgray;
+    width: 700px;
+}
+
+.media {
+    display: flex;
+    flex-direction: row;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+.pro-pic {
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    margin-top: 10px;
+}
+
+.usn-and-eml {
+    margin-left: 15px;
+}
+
+.usn {
+    margin-bottom: 0;
+
+}
+
+.eml {
+    margin-top: 0;
+}
+
+.pic-space {
+    display: block;
+    margin-top: 15px;
+}

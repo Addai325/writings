@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="blog-container">
+        <img class="pro-pic" src="{{ url_for('static',filename='profile_pics/' + post.author.image_file) }}">
+        <div class="aut-date">
+            <a href="{{ url_for('users.user_posts', username=post.author.username) }}" class="aut-link">{{ post.author.username }}</a>
+            <p class="dte">{{ post.date_posted.strftime('%Y-%m-%d') }}</p>
+        </div>
+        <div>
+            <a href="{{ url_for('posts.update_post', post_id=post.id) }}"><button>Update</button></a>
+            <a href="{{ url_for('posts.delete_confirmation', post_id=post.id) }}"><button>Delete</button></a>
+        </div>
+        <h1 class="tit-link">{{ post.title }}</h1>
+        <p class="cnt">{{ post.content }}</p>
+    </div>
+    {% if should_delete %}
+        <div class="whole-box">
+            <div class="delete-box">
+                <h2>DELETE CONFIRMATION</h2>
+                <p>Are you sure you want to Delete?</p>
+                <form method="POST" action="{{ url_for('posts.delete_confirmation', post_id=post.id) }}">
+                    <button class="cancel-btn"><a class="link-cancel" href="{{ url_for('posts.post', post_id=post.id) }}">Cancel</a></button>
+                    <button class="cancel-btn"><a class="link-cancel" href="{{ url_for('posts.delete_post', post_id=post.id) }}">Delete</a></button>
+                </form>
+            </div>
+        </div>
+    {% endif %}
+{% endblock content %}

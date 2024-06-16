@@ -1,0 +1,29 @@
+.whole-box {
+    background-color: rgba(0,0,0, 0.4);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+}
+
+.delete-box {
+    background-color: white;
+    text-align: center;
+    width: 30%;
+    margin: 15% auto;
+    padding: 15px;
+}
+
+
+.link-cancel {
+    text-decoration: none;
+    color: white;
+    border: none;
+    padding: 7px;
+}
+
+.cancel-btn {
+    background-color: black;
+}

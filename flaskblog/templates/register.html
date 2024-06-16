@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="form-container">
+        <form method="post">
+            {{ form.hidden_tag() }}
+            <fieldset class="the-fds">
+                <legend class="lgnd">Join Today</legend>
+                <div>
+                    {{ form.username.label(class='usn-lbl') }}
+                    {% if form.username.errors %}
+                        {{ form.username(class='inv-usn') }}
+                        {% for error in form.username.errors %}
+                            <span class="the-err">{{ error }}</span>
+                        {% endfor %}
+                    {% else %}
+                        {{ form.username(class='usn') }}
+                    {% endif %}
+                    
+                </div>
+                <div>
+                    {{ form.email.label(class='eml-lbl') }}
+                    {% if form.email.errors %}
+                        {{ form.email(class='inv-eml') }}
+                        {% for error in form.email.errors %}
+                            <span class="the-err">{{ error }}</span>
+                        {% endfor %}
+                    {% else %}
+                        {{ form.email(class='eml') }}
+                    {% endif %}
+
+                    
+                </div>
+                <div>
+                    {{ form.password.label(class='pswd-lbl') }}
+                    {% if form.password.errors %}
+                        {{ form.password(class='inv-pswd') }}
+                        {% for error in form.password.errors %}
+                            <span class="the-err">{{ error }}</span>
+                        {% endfor %}
+                    {% else %}
+                        {{ form.password(class='pswd') }}
+                    {% endif %}
+                </div>
+                <div>
+                    {{ form.confirm_password.label(class='cp-lbl') }}
+                    {% if form.confirm_password.errors %}
+                        {{ form.confirm_password(class='inv-cp') }}
+                        {% for error in form.confirm_password.errors %}
+                            <span class="the-err">{{ error }}</span>
+                        {% endfor %}
+                    {% else %}
+                        {{ form.confirm_password(class='cp') }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div>
+                {{ form.submit(class='sub') }}
+            </div>
+        </form>
+    </div>
+    <div class="have-acct">
+        <small class="sml-acct">
+            Already Have an Account <a href="{{ url_for('users.login') }}" class="lgn-link">Login</a>
+        </small>
+    </div>
+{% endblock content %}

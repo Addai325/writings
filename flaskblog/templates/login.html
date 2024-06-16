@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <div class="form-container">
+        <form method="post" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="the-fds">
+                <legend class="lgnd">Log In</legend>
+                <div>
+                    {{ form.email.label(class='eml-lbl') }}
+                    {% if form.email.errors %}
+                        {{ form.email(class='inv-eml') }}
+                        {% for error in form.email.errors %}
+                            <span class="the-err">{{ error }}</span>
+                        {% endfor %}
+                    {% else %}
+                        {{ form.email(class='eml') }}
+                    {% endif %}
+    
+                </div>
+                <div>
+                    {{ form.password.label(class='pswd-lbl') }}
+                    {% if form.password.errors %}
+                        {{ form.password(class='inv-pswd') }}
+                        {% for error in form.password.errors %}
+                            <span class="the-err">{{ error }}</span>
+                        {% endfor %}
+                    {% else %}
+                        {{ form.password(class='eml') }}
+                    {% endif %}
+                </div>
+                <div>
+                    {{ form.remember() }}
+                    {{ form.remember.label() }}
+                </div>
+            </fieldset>
+            <div>
+                {{ form.submit(class='sub') }}
+            </div>
+            <a href="{{ url_for('users.reset_request') }}">Forgot Password</a>
+        </form>
+    </div>
+    <div class="have-acct">
+        <small class="sml-acct">
+            New User <a href="{{ url_for('users.register') }}" class="lgn-link">Sign Up</a>
+        </small>
+    </div>
+{% endblock content %}

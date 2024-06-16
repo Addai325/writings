@@ -1,0 +1,144 @@
+body {
+    background-color: white;
+    margin: 0;
+}
+
+.main-header {
+    background-color: olivedrab;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+.first-sec {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.tfb {
+    text-decoration: none;
+    color: black;
+    font-family: Arial;
+    font-weight: bold;
+
+}
+
+.hme {
+    text-decoration: none;
+    color: white;
+    margin-left: 20px;
+    font-size: 15px;
+}
+
+.abt {
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+
+.np {
+    text-decoration: none;
+    color: white;
+    margin-right: 10px;
+}
+.acnt {
+    text-decoration: none;
+    color: white;
+    
+}
+
+.lgt {
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+    
+}
+
+.lgn {
+    text-decoration: none;
+    color: white;
+   
+}
+
+.rgs {
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+   
+}
+
+.the-sdbar {
+    position: fixed;
+    border: 1px solid gray;
+    top: 80px;
+    right: 50px;
+}   
+
+.major-header {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+
+.inp {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.lp, .ann, .et,.cal {
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 1px solid gray;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.lp {
+    margin-top: 15px;
+}
+
+
+.et {
+    margin-bottom: 15px;
+}
+
+
+.alert-success {
+    background-color: rgb(137, 201, 137);
+    color: white;
+    margin-top: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 600px;
+    margin-left: 150px;
+}
+
+.alert-failure {
+    background-color: red;
+    color: white;
+    margin-top: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 600px;
+    margin-left: 150px;
+}
+
+.alert-info {
+    background-color: gold;
+    color: white;
+    margin-top: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 600px;
+    margin-left: 150px;
+}

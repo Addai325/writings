@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="form-container">
+    <form method="post" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="the-fds">
+            <legend class="lgnd">{{ legend }}</legend>
+            <div>
+                {{ form.title.label(class='eml-lbl') }}
+                {% if form.title.errors %}
+                    {{ form.title(class='inv-eml') }}
+                    {% for error in form.title.errors %}
+                        <span class="the-err">{{ error }}</span>
+                    {% endfor %}
+                {% else %}
+                    {{ form.title(class='eml') }}
+                {% endif %}
+
+            </div>
+            <div>
+                {{ form.content.label(class='pswd-lbl') }}
+                {% if form.content.errors %}
+                    {{ form.content(class='inv-pswd') }}
+                    {% for error in form.content.errors %}
+                        <span class="the-err">{{ error }}</span>
+                    {% endfor %}
+                {% else %}
+                    {{ form.content(class='eml') }}
+                {% endif %}
+            </div>
+        </fieldset>
+        <div>
+            {{ form.submit(class='sub') }}
+        </div>
+    </form>
+</div>
+{% endblock content %}
