@@ -9,6 +9,8 @@ class Config():
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.environ.get('EMAIL_USER')
     MAIL_PASSWORD = os.environ.get('EMAIL_PASS')
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:Omni3255??!!@localhost/thedb'
+    # SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:Omni3255??!!@localhost/thedb'
     # SQLALCHEMY_DATABASE_URI = "mysql://root:pSdtXdRTeLmfeHpJohajWCRAEWEHskmc@mysql.railway.internal:3306/railway"
     # SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://root:pSdtXdRTeLmfeHpJohajWCRAEWEHskmc@mysql.railway.internal:3306/railway"
+    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:pSdtXdRTeLmfeHpJohajWCRAEWEHskmc@autorack.proxy.rlwy.net:52095/railway"
+
