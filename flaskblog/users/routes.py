@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import Blueprint, flash, render_template, request, redirect, url_for
+from flask import Blueprint, flash, render_template, request, redirect, url_for, session
 from flask_login import current_user, login_user, logout_user, login_required
 from flaskblog.users.forms import RegistrationForm, LoginForm, UpdateAccountForm, RequestResetForm, ResetPasswordForm
 from flaskblog import bcrypt, db
@@ -35,12 +35,27 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user, remember=form.remember.data)
+            session.permanent=True
             flash('You have been logged in', 'success')
             next_page = request.args.get('next')
             return redirect(next_page) if next_page else redirect(url_for('main.home'))
         else:
             flash('Unsuccessful Login. Please check Email and Password', 'failure')
     return render_template('login.html', form=form, title='Login')
+
+@users.before_request
+def session_time_checkout():
+    # Only continue if user is authenticated
+    if current_user.is_authenticated:
+        # Reset session modification time for every request
+        session.modified = True
+    elif request.endpoint not in ['users.login', 'users.register', 'users.reset_request']:
+        # Redirect to login if session expired and user tries to access protected routes
+        flash('Your session has expired, please log in again', 'warning')
+        return redirect(url_for('users.login'))
+
+
+
 
 
 @users.route("/logout")
