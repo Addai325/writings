@@ -3,7 +3,6 @@ import os
 class Config():
     SECRET_KEY ="bbc815aaf2ae896374431d7e66f1e8be"
     # SQLALCHEMY_DATABASE_URI = 'sqlite:///site.db'
-    PERMANENT_SESSION_LIFETIME = 6000
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT =587
     MAIL_USE_TLS = True
